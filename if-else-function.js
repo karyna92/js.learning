@@ -56,3 +56,13 @@ function check(number10, number20) {
     return number10 % number20 === 0;
 }
 console.log(true)
+
+//exercise 6
+let a = Number(prompt("Your first number:"));
+let b = Number(prompt("Your second number:"));
+let c = Number(prompt("Your third number:"));
+
+function discriminant(a, b, c){
+    return b**2 - 4*a*c;
+}
+console.log(discriminant(a, b, c));
