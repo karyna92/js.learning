@@ -32,10 +32,10 @@ for(let b=10; b<=50; b++){
 }
 
 //exercise 5
-let triangleSize=prompt(`how many rows should a triangle take?`);
+let triangleSize=Number(prompt(`how many rows should a triangle take?`));
 let row=`*`;
-for (let i=0; i<=triangleSize; i++){
+for (let i=1; i<=triangleSize; i++){
     row+= `*`;
+    console.log(row);
 }
-i++;
-console.log(row)
+//exercise 6
