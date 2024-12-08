@@ -97,3 +97,11 @@ let str = prompt("Введіть рядок");
 let words = str.split(" ");
 console.log(words.length); // виводить кількість слів у рядку
 
+// вибрати рандомне значення
+function getRandomComputerResult() {
+    const options = ["Rock", "Paper", "Scissors"];
+    const randomIndex = Math.floor(Math.random() * options.length);
+    return options[randomIndex];
+  }
+  console.log(getRandomComputerResult()); // виводить випадковий результат
+   
