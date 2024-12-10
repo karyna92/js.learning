@@ -119,3 +119,89 @@ class Animal {
     console.log("вік введено не коректно");  
   }
   
+//class with symbol keys************************************************************************************
+class NumberedCollection {
+  constructor() {
+      this.collection = {}; // Ініціалізуємо порожній об'єкт
+      this.counter = 1;     // Лічильник для нумерації елементів
+  }
+
+  // Метод для додавання нового значення
+  add(value) {
+      const key = `*${this.counter}*`; // Створюємо ключ у форматі "*1*", "*2*"
+      this.collection[key] = value;
+      this.counter++; // Збільшуємо лічильник для наступного елемента
+  }
+
+  // Метод для видалення елемента за ключем
+  delete(key) {
+      if (this.collection[key]) {
+          delete this.collection[key];
+          console.log(`Елемент з ключем ${key} видалено.`);
+      } else {
+          console.log(`Ключ ${key} не знайдено.`);
+      }
+  }
+
+  // Метод для отримання значення за ключем
+  get(key) {
+      if (this.collection[key]) {
+          return this.collection[key];
+      } else {
+          console.log(`Ключ ${key} не знайдено.`);
+          return null;
+      }
+  }
+
+  // Метод для виведення всієї колекції
+  printCollection() {
+      console.log("Поточна колекція:");
+      console.log(this.collection);
+  }
+//Додаємо метод [Symbol.iterator] для обходу колекції****************************************
+[Symbol.iterator]() {
+  const keys = Object.keys(this.collection); // Масив ключів
+  let index = 0; // Поточний індекс
+
+  return {
+      next: () => {
+          if (index < keys.length) {
+              const key = keys[index++];
+              return { value: this.collection[key], done: false };
+          } else {
+              return { done: true }; // Ітерація завершена
+      }
+    }
+  }
+};
+}
+//Задача про парні дужки.Написати функцію, яка приймає вираз, що містить дужки різних типів - (), [], {}, <>, і перевіряє, чи правильно вони відкриваються і закриваються.********************************** */
+function checkSequence(expression) {
+  const stack = []; // Стек для зберігання відкриваючих дужок
+  const bracketsMap = { ')': '(', ']': '[', '}': '{', '>': '<' }; // Відповідність дужок
+
+  for (let char of expression) {
+      // Якщо символ - відкриваюча дужка, додаємо в стек
+      if (char === '(' || char === '[' || char === '{' || char === '<') {
+          stack.push(char);
+      }
+      // Якщо символ - закриваюча дужка
+      else if (char === ')' || char === ']' || char === '}' || char === '>') {
+          const lastBracket = stack.pop(); // Дістаємо верхній елемент зі стека
+          if (bracketsMap[char] !== lastBracket) {
+              return false; // Невідповідність дужок
+          }
+      }
+  }
+
+  // Якщо стек порожній, то всі дужки правильно закриті
+  return stack.length === 0;
+}
+
+// Тести
+console.log(checkSequence('()(([]))')); // true
+console.log(checkSequence('{][)'));     // false
+console.log(checkSequence('({[]})'));   // true
+console.log(checkSequence('(<{[()]}>())')); // true
+console.log(checkSequence('((<>)'));    // false
+console.log(checkSequence(''));         // true (порожній рядок)

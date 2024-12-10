@@ -99,3 +99,4 @@ const peugeot = new Car("dark gray", "8", "ford", 1800, 7, 70, 170);
 console.log(ford);
 console.log(mazda);
 console.log(peugeot)
+

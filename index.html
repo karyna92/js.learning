@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="linkedlist.js" defer></script>
-</head>
-<body>
-   <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, magnam cumque suscipit libero exercitationem, corrupti, explicabo id beatae itaque saepe aperiam vel quis quia iusto sapiente tenetur asperiores ea voluptatum.</div> 
-</body>
+    <script src="dom-events.js" defer></script>
+    <style>
+        #bg{
+            height: 200px;
+            width: 200px;
+          background-color: gainsboro;
+          border-radius: 50%;   
+          border: 2px solid grey;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+    </style>
+  </head>
+  <body>
+    <div>
+        <button id="btn">click</button>
+    </div>
+    <a href=# id="new-btn-link">клікни, аби з’явилась кнопка</a>
+    <button id="btn-appear" >нова кнопка</button>
+    <div id="bg">
+        <button id="change-btn">change</button>
+    </div>
+  </body>
 </html>
