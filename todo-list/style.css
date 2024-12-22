@@ -1,0 +1,152 @@
+:root{ 
+    --main-background:rgba(12, 12, 12, 0.934);
+    --secondary-background:rgba(48, 43, 43, 0.796);
+    --main-text:rgb(255, 255, 255);
+    --secondary-text:rgba(232, 225, 225, 0.76);
+    --third-text:rgba(106, 104, 104, 0.789);
+    --accent-color:rgb(228, 135, 48);
+}
+*{ 
+    margin: 0;
+    padding: 0;
+}
+body{ 
+    min-height: 100vh;
+    background-color: var(--main-background);
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--main-text);
+    font-family: sans-serif;
+    font-size: 16px;
+}
+h1{  
+    margin-top: 85px;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    text-align: center;
+    text-transform: uppercase;
+}
+.wrapper{ 
+    min-width: 700px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.todo-input{
+     box-sizing: border-box;
+     padding: 15px 20px;
+     width: 100%;
+   
+     background: none;
+     border: 2px solid var(--secondary-background);
+     border-radius: 1000px;
+     
+     color: var(--main-text);
+     caret-color: var(--accent-color);
+     font-size: 18px;
+}
+.todo-input:focus{
+    outline: none;
+}
+form{ 
+    position: relative;
+}
+.add-btn{
+     position: absolute;
+     top:0;
+     right: 0;
+     padding: 0 30px;
+
+     background-color: var(--accent-color);
+     height: 100%;
+     color: var(--main-background);
+     border: none;
+     border-radius: 1000px;
+
+     font:inherit;
+     font-weight: 800;
+     cursor: pointer;
+
+}
+.todo-list-element{
+     padding: 0 18px;
+     margin-bottom: 15px;
+     background-color: var(--secondary-background);
+     border-radius: 15px;
+     display: flex;
+     align-items: center;
+
+}
+.todo-text{ 
+    padding: 15px;
+    padding-right: 0;
+    flex-grow: 1;
+    transition: 0.7s ease;
+}
+.delete-btn{ 
+    background: none;
+    border: none;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--third-text);
+    font-size: 18px;
+    transition: 200ms ease;
+}
+.delete-btn:hover{
+color: var(--accent-color);
+}
+.custom-checkbox{ 
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    min-height: 20px;
+    min-width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: 200ms ease;
+    cursor: pointer;
+}
+.custom-checkbox > i{ 
+    color: transparent;
+}
+input[type="checkbox"]:checked ~ .custom-checkbox{
+     background-color: var(--accent-color);
+}
+input[type="checkbox"]:checked ~ .custom-checkbox i{
+    color: var(--primary-text);
+}
+input[type="checkbox"]:checked ~ .todo-text{
+    text-decoration: line-through;
+    color: var(--third-text);
+}
+input[type="checkbox"]{ 
+    display: none;
+}
+@media screen and (max-width: 500px) {    /* не розумію чому не працює ?*/
+   body{ 
+    font-size: 12px;
+   } 
+   h1{
+    margin-top: 40px;
+    font-size: 2rem;
+   }
+   .wrapper{
+     min-width:600px;
+     flex-shrink: 1;
+   }
+   .add-bth{
+     position:relative;
+     width:100%;
+     padding:15;
+     margin-top: 10px;
+   }
+}
