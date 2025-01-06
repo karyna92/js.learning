@@ -1,0 +1,129 @@
+:root {
+  --main-background: rgba(79, 64, 51, 0.865);
+  --secondary-background: rgba(84, 59, 47, 0.978);
+  --main-text: rgb(255, 255, 255);
+  --secondary-text: rgba(239, 227, 227, 0.76);
+  --accent-color: rgb(147, 113, 84);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-image: url("/contact-us-form/assets/images/pexels-photo-831079.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 15px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--main-text);
+  font-family: sans-serif;
+  font-size: 18px;
+}
+
+form {
+  background-color: var(--main-background);
+  padding: 35px;
+  max-width: 900px;
+  min-width: 400px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  border: 2px solid var(--secondary-background);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 35px;
+  font-weight: 400;
+  margin: 10px 0 20px 0;
+  align-self: center;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--accent-color);
+}
+
+label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  line-height: 3;
+}
+span {
+  width: 200px;
+  text-align: left;
+}
+.parts {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 15px;
+  width:100%;
+}
+.inputs {
+ width:100%; 
+}
+.inputs > input,
+.inputs > textarea,
+.inputs > select {
+  width:100%;
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--secondary-text);
+  font-size: 17px;
+  box-shadow: 0 2px 0 var(--secondary-text);
+  padding: 5px;
+  outline: none;
+}
+
+.inputs > input:focus,
+.inputs > textarea:focus,
+.inputs > select:focus {
+  box-shadow: 0 2px 5px var(--accent-color);
+}
+
+button {
+  width: 60%;
+  align-self: center;
+  padding: 10px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  background-color: var(--secondary-background);
+  color: var(--main-text);
+  border: 2px solid var(--main-background);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--secondary-text);
+  color: var(--accent-color);
+  transform: scale(1.05);
+}
+
+/* .inputs > select {
+  background-color: var(--main-background);
+  color: var(--secondary-text);
+} */
+/* намагалася навісити стилі на випадаючий список не получаться */
+
+
+input:valid {
+  border: 2px solid rgb(35, 117, 35);
+}
+
+input:invalid {
+  border: 2px solid rgba(157, 13, 13, 0.667);
+}
